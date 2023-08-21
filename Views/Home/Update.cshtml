@@ -1,0 +1,167 @@
+﻿@model join_loginSignup.Models.Model2
+
+@{
+    ViewBag.Title = "Update";
+}
+
+<h2>Update</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <form>
+        <div class="form-horizontal">
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model => model.Id)
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.name, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.name, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.name, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.CarName, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.CarName, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.CarName, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.description, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.description, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.description, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Save" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+    </form>
+}
+
+<div class="link">
+    @Html.ActionLink("Back to List", "List", null, new { style = "color:white;text-decoration:none;font-weight: bold;" })
+</div>
+<style>
+    .link {
+        position: absolute;
+        right: 150px;
+        top: 60px;
+        border: solid;
+        color: white;
+        background-color: SlateBlue;
+        font-family: 'Poppins',sans-serif;
+        padding: 10px 50px;
+        text-align: center;
+        font-size: 16px;
+        height: 20px;
+        font-weight: 700;
+        margin: 4px 2px;
+        transition-duration: 0.4s;
+        cursor: pointer;
+        position: absolute;
+        border-radius: 10px;
+    }
+
+        .link:hover {
+            color: white;
+            font-size: 15px;
+            border-radius: 50px;
+        }
+
+    form {
+        height: 400px;
+        width: 350px;
+        background-color: rgba(255,255,255,0.13);
+        position: absolute;
+        transform: translate(-170%,-50%);
+        top: 50%;
+        left: 83%;
+        border-radius: 10px;
+        backdrop-filter: blur(10px);
+        border: 2px solid rgba(255,255,255,0.1);
+        box-shadow: 0 0 10px rgba(8,7,16,0.6);
+        padding: 50px 35px;
+    }
+
+        form * {
+            font-family: 'Poppins',sans-serif;
+            color: #ffffff;
+            letter-spacing: 0.5px;
+            outline: none;
+            border: none;
+        }
+
+    label {
+        display: block;
+        margin-top: 20px;
+        font-size: 16px;
+        font-weight: 800;
+        color: MediumBlue;
+    }
+
+    input {
+        display: block;
+        height: 10px;
+        width: 60%;
+        background-color: white;
+        font-family: 'Poppins',sans-serif;
+        border-radius: 3px;
+        padding: 10px 50px;
+        margin-top: 8px;
+        font-size: 20px;
+        font-weight: 500;
+        border-width: 5px;
+        border-style: inset;
+        border-color: rgba(69, 93, 226, 0.8);
+        color: black;
+        border: solid;
+        border-radius: 10px;
+    }
+
+        input:hover {
+            color: DarkMagenta;
+        }
+
+        input[type=submit] {
+            border: solid;
+            color: white;
+            background-color: SlateBlue;
+            padding: 10px 50px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            height: 40px;
+            font-weight: 700;
+            margin: 4px 2px;
+            transition-duration: 0.4s;
+            cursor: pointer;
+            position: absolute;
+            left: 90px;
+            bottom: 60px;
+            border-radius: 10px;
+        }
+
+        input[type=number]::-webkit-inner-spin-button,
+        input[type=number]::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            margin: 0;
+        }
+
+    .btn:hover {
+        color: white;
+        font-size: 18px;
+        border-radius: 50px;
+    }
+</style>

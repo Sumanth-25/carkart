@@ -1,0 +1,230 @@
+﻿
+@{
+    ViewBag.Title = "userpage";
+}
+
+
+@*<div>
+        Welcome @Session["email"]
+    </div>*@
+<html>
+<body>
+    <header class="header">
+        <h1 class="logo"><a href="#">DASH BOARD</a></h1>
+
+        &emsp;&emsp;
+        <a>@Html.ActionLink("Profile", "Welcome")</a>
+
+        &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+        <a>@Html.ActionLink("Products", "List2")</a>
+
+        @*&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+        <a>@Html.ActionLink("Logout", "")</a>*@
+
+        &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+        <a>@Html.ActionLink("Sign in / Login", "Index")</a>
+
+
+        <div>
+            <a>Welcome @Session["email"]</a>
+            &emsp;
+        </div>
+    </header>
+    <script src="../../Content/assets/js/jquery-1.10.2.js"></script>
+    <script src="../../Content/assets/js/bootstrap.js"></script>
+    <script src="../../Content/assets/js/custom.js"></script>
+    <div class="better">
+        <h1>
+            <br />Better way <br /><br />to <br /><br />rent your <br /><br /> perfect cars <br /><br />
+
+            <img src="~/icon/handshake-icon-removebg-preview.png" style="height: 100px; width: 100px;" />
+        </h1>
+    </div>
+    <form>
+        <div class="image-slideshow">
+            <div class="image fade">
+                <img src="~/image/kevin-bhagat-3cLpiv8h5so-unsplash.jpg" />
+            </div>
+
+            <div class="image fade">
+                <img src="~/image/tyler-clemmensen-5q1xp_kresk-unsplash.jpg" />
+            </div>
+
+            <div class="image fade">
+                <img src="~/image/denys-nevozhai-QD-8l-8_uJg-unsplash.jpg" />
+            </div>
+
+            <div class="image fade">
+                <img src="~/image/brandon-green-F_KScPBU93I-unsplash.jpg" />
+            </div>
+
+            <div class="image fade">
+                <img src="~/image/why-kei-8e2gal_GIE8-unsplash.jpg" alt="Neon Sign" />
+            </div>
+        </div>
+    </form>
+    <script src="main.js"></script>
+    <script>
+        let index = 0;
+        displayImages();
+        function displayImages() {
+            let i;
+            const images = document.getElementsByClassName("image");
+            for (i = 0; i < images.length; i++) {
+                images[i].style.display = "none";
+            }
+            index++;
+            if (index > images.length) {
+                index = 1;
+            }
+            images[index - 1].style.display = "block";
+            setTimeout(displayImages, 2000);
+        }
+    </script>
+    <style>
+
+        .better {
+            height: 600px;
+            width: 415px;
+            background-color: aliceblue;
+            position: absolute;
+            transform: translate(-265%,20%);
+            top: 45%;
+            left: 80%;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255,255,255,0.1);
+            box-shadow: 0 0 10px rgba(8,7,16,0.6);
+            padding: 10px 10px;
+            text-align: center;
+            color: darkblue !important;
+            font-family: Courier, monospace;
+        }
+
+        form {
+            height: 515px;
+            width: 760px;
+            background-color: rgba(255,255,255,0.13);
+            position: absolute;
+            transform: translate(-65%,-30%);
+            top: 45%;
+            left: 80%;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255,255,255,0.1);
+            box-shadow: 0 0 10px rgba(8,7,16,0.6);
+            padding: 10px 10px;
+            text-align: center;
+        }
+
+        * {
+            box-sizing: border-box
+        }
+
+        .image-slideshow {
+            max-width: 1000px;
+            position: relative;
+            margin: auto;
+        }
+
+        img {
+            width: 100%
+        }
+
+        .fade {
+            animation-name: fade;
+            animation-duration: 3s;
+        }
+
+        fade {
+            from
+
+        {
+            opacity: .4
+        }
+
+        to {
+            opacity: 1
+        }
+        }
+    </style>
+</body>
+</html>
+
+<style>
+    div {
+        text-align: right;
+    }
+
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: 'Montserrat', sans-serif;
+        line-height: 1.6;
+        margin: 0;
+        min-height: 100vh;
+        /*padding:20px 600px;*/
+    }
+
+    ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+
+    h2,
+    h3,
+    a {
+        color: darkblue;
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+
+
+    .logo {
+        margin: 0;
+        font-size: 1.45em;
+    }
+
+    .main-nav {
+        margin-top: 5px;
+    }
+
+        .logo a,
+        .main-nav a {
+            padding: 10px 15px;
+            text-transform: uppercase;
+            text-align: center;
+            display: block;
+        }
+
+        .main-nav a {
+            color: #34495e;
+            font-size: .99em;
+        }
+
+            .main-nav a:hover {
+                color: #718daa;
+            }
+
+
+
+    .header {
+        padding-top: .5em;
+        padding-bottom: .5em;
+        border: 1px solid #a2a2a2;
+        background-color: aliceblue;
+        -webkit-box-shadow: 0px 0px 14px 0px rgba(0,0,0,0.75);
+        -moz-box-shadow: 0px 0px 14px 0px rgba(0,0,0,0.75);
+        box-shadow: 0px 0px 14px 0px rgba(0,0,0,0.75);
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        border-radius: 5px;
+    }
+</style>

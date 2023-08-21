@@ -1,0 +1,165 @@
+﻿@model IEnumerable<join_loginSignup.Models.Model2>
+
+@{
+    ViewBag.Title = "List";
+}
+
+<h2>List</h2>
+<br />
+<div class="link">
+    @Html.ActionLink("Logout", "admin", null, new { style = "color:white;text-decoration:none;font-weight: bold;" })
+</div>
+
+
+
+<p class="createLink">
+    @Html.ActionLink("Create New", "AddItem", null, new { style = "color:white;text-decoration:none;font-weight: bold;" })
+</p>
+<br />
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CarName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.images)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OrderCar)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CarName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.description)
+            </td>
+            <td>
+                <a href="~/upload/@(item.images)" target="_blank">
+
+                    <img src="~/upload/@(item.images)" style="width: 150px; height: 100px;" />
+                </a>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OrderCar)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Update", new { Id = item.Id }, new { style = "text-decoration:none; font-family: 'Poppins',sans-serif;" }) |
+                @*@Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |*@
+                @Html.ActionLink("Delete", "Delete", new { Id = item.Id }, new { style = "text-decoration:none; font-family: 'Poppins',sans-serif;" })
+            </td>
+        </tr>
+    }
+
+</table>
+@*@foreach (var imagePath in ViewBag.ImagePaths)
+    {
+        <img src="@imagePath" alt="Car Image" />
+    }*@
+<style>
+    h2 {
+        height: 60px;
+        background: #f5f5f5;
+        color: MediumBlue;
+        font-family: 'Poppins',sans-serif;
+        font-size: 35px;
+        text-align: center;
+        font-weight: bold;
+    }
+
+    .link {
+        position: absolute;
+        right: 50px;
+        top: 90px;
+        border: solid;
+        color: white;
+        background-color: SlateBlue;
+        font-family: 'Poppins',sans-serif;
+        padding: 10px 50px;
+        text-align: center;
+        font-size: 16px;
+        height: 20px;
+        font-weight: 700;
+        margin: 4px 2px;
+        transition-duration: 0.4s;
+        cursor: pointer;
+        position: absolute;
+        border-radius: 10px;
+    }
+
+        .link:hover {
+            color: white;
+            font-size: 15px;
+            border-radius: 50px;
+        }
+
+    .createLink {
+        position: absolute;
+        left: 50px;
+        top: 90px;
+        border: solid;
+        color: white;
+        background-color: SlateBlue;
+        font-family: 'Poppins',sans-serif;
+        padding: 10px 50px;
+        text-align: center;
+        font-size: 16px;
+        height: 20px;
+        font-weight: 700;
+        margin: 4px 2px;
+        transition-duration: 0.4s;
+        cursor: pointer;
+        position: absolute;
+        border-radius: 10px;
+    }
+
+        .createLink:hover {
+            color: white;
+            font-size: 15px;
+            border-radius: 50px;
+        }
+
+
+    table {
+        font-family: arial, sans-serif;
+        width: 100%;
+    }
+
+    td, th {
+        border: 1px solid #dddddd;
+        text-align: center;
+        padding: 20px;
+    }
+
+    tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+    td:hover {
+        background-color: #ddd;
+    }
+
+    h2 {
+        text-align: center
+    }
+</style>

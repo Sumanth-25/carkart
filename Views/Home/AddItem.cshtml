@@ -1,0 +1,242 @@
+﻿@model join_loginSignup.Models.Model2
+
+@{
+    ViewBag.Title = "AddItem";
+
+}
+
+<h2>AddItem</h2>
+
+<from>
+    @using (Html.BeginForm("AddItem", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @*<div class="form-group">
+                    @Html.LabelFor(model2 => model2.name, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor( model2 => model2.name, new { htmlAttributes = new { @class = "form-control"} })
+                        @Html.ValidationMessageFor(model2 => model2.name, "", new { @class = "text-danger" })
+                    </div>
+                </div>*@
+            <div>
+                @Html.LabelFor(model2 => model2.CarName, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="input">
+                    @Html.EditorFor(model2 => model2.CarName, new { htmlAttributes = new { @class = "form-control",@style = "color:black" } })
+                    @Html.ValidationMessageFor(model2 => model2.CarName, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="textarea">
+                @Html.LabelFor(model2 => model2.description, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.TextAreaFor(model => model.description, new { type = "textarea", @style = "color:black;width: 90%;height:100px;border:2px solid;font-weight: bold;" })
+                    @Html.ValidationMessageFor(model2 => model2.description, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div>
+                @Html.LabelFor(model2 => model2.images, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div>
+                    @Html.TextBox("file", "", new { type = "file" }) <br />
+                 
+                    @ViewBag.Message
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Create" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+    }
+</from>
+<div class="link">
+    @Html.ActionLink("Back to List", "List", null, new { style = "color:white;text-decoration:none;font-weight: bold;" })
+</div>
+
+<style>
+    input[type=file]::file-selector-button {
+        margin-right: 20px;
+        border: none;
+        background: #084cdf;
+        padding: 10px 20px;
+        border-radius: 10px;
+        color: #fff;
+        cursor: pointer;
+        transition: background .2s ease-in-out;
+    }
+
+        input[type=file]::file-selector-button:hover {
+            background: #0d45a5;
+        }
+
+    h2 {
+        height: 60px;
+        background: #f5f5f5;
+        color: MediumBlue;
+        font-family: 'Poppins',sans-serif;
+        font-size: 35px;
+        text-align: center;
+        font-weight: bold;
+    }
+
+    .link {
+        position: absolute;
+        right: 70px;
+        top: 90px;
+        border: solid;
+        color: white;
+        background-color: SlateBlue;
+        padding: 10px 50px;
+        font-family: 'Poppins',sans-serif;
+        text-align: center;
+        font-size: 16px;
+        height: 20px;
+        font-weight: 700;
+        margin: 4px 2px;
+        transition-duration: 0.4s;
+        cursor: pointer;
+        position: absolute;
+        border-radius: 10px;
+    }
+
+        .link:hover {
+            color: white;
+            font-size: 15px;
+            border-radius: 50px;
+        }
+
+    
+
+    form {
+        height: 400px;
+        width: 350px;
+        background-color: rgba(255,255,255,0.13);
+        position: absolute;
+        transform: translate(-50%,-50%);
+        top: 50%;
+        left: 50%;
+        border-radius: 10px;
+        backdrop-filter: blur(10px);
+        border: 2px solid rgba(255,255,255,0.1);
+        box-shadow: 0 0 10px rgba(8,7,16,0.6);
+        padding: 50px 35px;
+    }
+
+        form * {
+            font-family: 'Poppins',sans-serif;
+            color: #a30e0e;
+            letter-spacing: 0.5px;
+            outline: none;
+            border: none;
+        }
+
+    
+
+    label {
+        display: block;
+        margin-top: 20px;
+        font-size: 16px;
+        font-weight: 800;
+        color: MediumBlue;
+    }
+
+    .input {
+        display: block;
+        height: 20px;
+        width: 60%;
+        background-color: white;
+        border-radius: 3px;
+        padding: 10px 50px;
+        margin-top: 8px;
+        font-size: 20px;
+        font-weight: 500;
+        border-width: 5px;
+        border-style: inset;
+        border-color: rgba(69, 93, 226, 0.8);
+        color: black;
+        border: solid;
+        border-radius: 10px;
+    }
+
+        .input:hover {
+            color: DarkMagenta;
+        }
+
+        input[type=submit] {
+            border: solid;
+            color: white;
+            background-color: SlateBlue;
+            padding: 10px 50px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            height: 40px;
+            font-weight: 700;
+            margin: 4px 2px;
+            transition-duration: 0.4s;
+            cursor: pointer;
+            position: absolute;
+            left: 120px;
+            bottom: 20px;
+            border-radius: 10px;
+        }
+
+        input[type=number]::-webkit-inner-spin-button,
+        input[type=number]::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            margin: 0;
+        }
+
+        input[type=submit]:hover {
+            color: white;
+            font-size: 18px;
+            border-radius: 50px;
+        }
+
+        input[type=button] {
+            border: solid;
+            color: white;
+            background-color: SlateBlue;
+            padding: 10px 50px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            height: 40px;
+            font-weight: 700;
+            margin: 4px 2px;
+            transition-duration: 0.4s;
+            cursor: pointer;
+            position: absolute;
+            left: 90px;
+            bottom: 60px;
+            border-radius: 10px;
+        }
+
+            input[type=button]:hover {
+                color: white;
+                font-size: 18px;
+                border-radius: 50px;
+            }
+
+        input[type=submit]:disabled {
+            pointer-events: none;
+            opacity: 0.65;
+        }
+
+        input[type=button]:disabled {
+            pointer-events: none;
+            opacity: 0.65;
+        }
+
+    
+</style>
+
