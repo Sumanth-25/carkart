@@ -1,4 +1,4 @@
 # carkart
-ASP.Net framework using mvc \n
-database microsoft sql \n
+ASP.Net framework using mvc <br>
+database microsoft sql <br>
 cshtml, css, javascript
